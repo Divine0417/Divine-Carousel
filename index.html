@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Image Slider</h1>
+    <div class="carousel-container">
+        <button class="back-btn" onclick="backImage()">Prev</button>
+        <div id="img-display" class="carousel">
+            <img src="" alt="" id="pictures">
+        </div>
+        <button class="next-btn" onclick="nextImage()">Next</button>
+    </div>
+</body>
+</html>
+<script>
+    let displayImg = document.getElementById("pictures");
+    let currrentImg = 0;
+    displayDefaultBackground();
+
+    function displayDefaultBackground() {
+        displayImg.src = 'miles-morales-5.jpg';
+        //displayImg.style.backgroundColor = 'Pink'
+        console.log("E work wella")
+    }
+
+    let pictures = [
+        'miles-morales-5.jpg',
+        'miles-morales-1.jpg',
+        'miles-morales-2.jpg',
+        'miles-morales-4.jpg',
+        'MILES-MORALES-3.jpg',
+    ]
+
+    function nextImage() {
+        currrentImg++ // currentImg = currentImg +1
+        if (currrentImg >= pictures.length) { // currentImg > 4
+            currrentImg = 0;
+        }
+        displayImg.src = pictures[currrentImg];
+    }
+
+    function backImage() {
+        currrentImg--; // currentImg = currentImg - 1
+        if (currrentImg < 0) { // 
+            currrentImg = pictures.length - 1; // currentImg = 4
+        }
+        displayImg.src = pictures[currrentImg];
+    }
+</script>
